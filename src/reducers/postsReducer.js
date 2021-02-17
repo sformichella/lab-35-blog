@@ -1,4 +1,3 @@
-
 import { CREATE_POST, DELETE_POST } from '../actions/postActions';
 
 export const initialState = {
@@ -6,16 +5,18 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
-  switch(action.switch) {
+  switch(action.type) {
     case CREATE_POST:
       return {
         ...state,
-        dogs: [...state.posts, action.payload]
+        posts: [...state.posts, action.payload]
       };
     case DELETE_POST: {
       const posts = state
         .posts
-        .filter(post => post.body !== action.postBody);
+        .filter(post => post.body !== action.payload);
+
+      console.log(posts);
 
       return {
         ...state,

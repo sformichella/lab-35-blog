@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { createPost } from '../../actions/postActions';
-import { useDispatch } from '../../state/PostProvider';
+import { useDispatch, useSelector } from '../../state/PostProvider';
+
+import { getPosts } from '../../selectors/postsSelectors';
 
 export default function PostForm() {
   const dispatch = useDispatch();
+  const state = useSelector(getPosts);
 
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
   const submitForm = e => {
     e.preventDefault();
+
+    console.log(state);
 
     dispatch(createPost({ title, body }));
   };
@@ -44,7 +49,7 @@ export default function PostForm() {
         onChange={updateBody}
         value={body}
       />
-      <button type="submit">Post!</button>
+      <button>Post!</button>
     </form>
   );
 }
