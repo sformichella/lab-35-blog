@@ -1,5 +1,9 @@
 import React from 'react';
 
+import PostForm from '../PostForm/PostForm';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <PostForm />
+  );
 }
