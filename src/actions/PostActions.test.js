@@ -1,4 +1,9 @@
-import { createPost, CREATE_POST, deletePost, DELETE_POST } from './postActions';
+import {
+  createPost,
+  CREATE_POST,
+  deletePost,
+  DELETE_POST
+} from './postActions';
 
 describe('post actions', () => {
   it('makes a CREATE_POST action', () => {
