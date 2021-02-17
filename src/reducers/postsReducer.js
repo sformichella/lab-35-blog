@@ -16,8 +16,6 @@ export const reducer = (state, action) => {
         .posts
         .filter(post => post.body !== action.payload);
 
-      console.log(posts);
-
       return {
         ...state,
         posts
