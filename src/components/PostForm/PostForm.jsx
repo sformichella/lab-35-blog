@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
+import { createPost } from '../../actions/postActions';
+import { useDispatch } from '../../state/PostProvider';
 
 export default function PostForm() {
+  const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
   const submitForm = e => {
     e.preventDefault();
+
+    dispatch(createPost({ title, body }));
   };
 
   const updateTitle = ({ target }) => {
