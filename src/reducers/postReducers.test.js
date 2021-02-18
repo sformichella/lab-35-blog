@@ -1,5 +1,5 @@
 import { createPost, deletePost } from '../actions/postActions';
-import { reducer } from './postsReducer';
+import reducer from './postsReducer';
 
 describe('post reducer', () => {
   it('makes a post', () => {
