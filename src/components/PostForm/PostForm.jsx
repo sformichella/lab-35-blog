@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import { createPost } from '../../actions/postActions';
-import { useDispatch, useSelector } from '../../state/PostProvider';
-
-import { getPosts } from '../../selectors/postsSelectors';
+import { useDispatch } from 'react-redux';
 
 export default function PostForm() {
   const dispatch = useDispatch();
-  const state = useSelector(getPosts);
 
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
   const submitForm = e => {
     e.preventDefault();
-
-    console.log(state);
 
     dispatch(createPost({ title, body }));
   };
