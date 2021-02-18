@@ -1,5 +1,14 @@
 import React from 'react';
 
+import { PostProvider } from '../../state/PostProvider';
+import PostForm from '../PostForm/PostForm';
+import PostList from '../PostList/PostList';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <PostProvider>
+      <PostForm />
+      <PostList />
+    </PostProvider>
+  );
 }
