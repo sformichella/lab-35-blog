@@ -8,8 +8,8 @@ export default function PostList() {
   const posts = useSelector(getPosts);
 
   const postElements = posts
-    .map((post, i) => (
-      <li key={i}>
+    .map(post => (
+      <li key={post.index}>
         <Post {...post}/>
       </li>
     ));

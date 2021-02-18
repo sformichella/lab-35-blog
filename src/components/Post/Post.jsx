@@ -5,11 +5,11 @@ import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/postActions';
 
 
-export default function Post({ title, body }) {
+export default function Post({ index, title, body }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deletePost(body));
+    dispatch(deletePost(index));
   };
 
   return (
@@ -27,6 +27,7 @@ export default function Post({ title, body }) {
 }
 
 Post.propTypes = {
+  index: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired
 };

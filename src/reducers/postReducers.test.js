@@ -4,7 +4,7 @@ import reducer from './postsReducer';
 describe('post reducer', () => {
   it('makes a post', () => {
     const state = {
-      posts: []
+      posts: {}
     };
 
     const action = createPost({
@@ -15,24 +15,28 @@ describe('post reducer', () => {
     const updatedState = reducer(state, action);
 
     expect(updatedState).toEqual({
-      posts: [{
-        title: 'Really Cool Post',
-        body: 'Really cool body'
-      }]
+      posts: {
+        '0': {
+          title: 'Really Cool Post',
+          body: 'Really cool body'
+        }
+      }
     });
   });
 
   it('deletes a post', () => {
     const state = {
-      posts: [{
-        title: 'Really Cool Post',
-        body: 'Really cool body'
-      }]
+      posts: {
+        '0': {
+          title: 'Really Cool Post',
+          body: 'Really cool body'
+        }
+      }
     };
 
-    const action = deletePost('Really cool body');
+    const action = deletePost('0');
     const updatedState = reducer(state, action);
 
-    expect(updatedState).toEqual({ posts: [] });
+    expect(updatedState).toEqual({ posts: {} });
   });
 });

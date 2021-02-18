@@ -4,16 +4,19 @@ describe('post selectors', () => {
   it('selects the posts from state', () => {
     const state = {
       posts: {
-        posts: [{
-          title: 'Really Cool Post',
-          body: 'Really cool body'
-        }]
+        posts: {
+          '0': {
+            title: 'Really Cool Post',
+            body: 'Really cool body'
+          }
+        }
       }
     };
 
     const posts = getPosts(state);
 
     expect(posts).toEqual([{
+      index: '0',
       title: 'Really Cool Post',
       body: 'Really cool body'
     }]);
