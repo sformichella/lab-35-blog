@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useDispatch } from '../../state/PostProvider';
+import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/postActions';
 
 
