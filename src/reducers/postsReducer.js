@@ -4,7 +4,7 @@ export const initialState = {
   posts: []
 };
 
-export const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
   switch(action.type) {
     case CREATE_POST:
       return {
@@ -25,3 +25,5 @@ export const reducer = (state, action) => {
       return state;
   }
 };
+
+export default reducer;
