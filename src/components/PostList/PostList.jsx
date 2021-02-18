@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from '../../state/PostProvider';
+import { useSelector } from 'react-redux';
 import { getPosts } from '../../selectors/postsSelectors';
 
 import Post from '../../components/Post/Post';
