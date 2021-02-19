@@ -30,7 +30,7 @@ describe('comment reducer', () => {
       }]
     };
 
-    const action = deleteComment('1');
+    const action = deleteComment('really cool comment');
 
     const updatedState = reducer(state, action);
 
