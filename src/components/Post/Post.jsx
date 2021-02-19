@@ -13,6 +13,7 @@ export default function Post({ index, title, body, comments }) {
 
   const handleDelete = () => {
     dispatch(deletePost(index));
+    dispatch(deleteComments(index));
   };
 
   return (
@@ -47,8 +48,8 @@ Post.propTypes = {
   index: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  comments: PropTypes.arrayOf({
+  comments: PropTypes.arrayOf(PropTypes.shape({
     index: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired
-  })
+  }))
 };

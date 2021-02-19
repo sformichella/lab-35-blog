@@ -1,4 +1,4 @@
-import { CREATE_COMMENT, DELETE_COMMENT } from '../actions/commentActions';
+import { CREATE_COMMENT, DELETE_COMMENT, DELETE_COMMENTS } from '../actions/commentActions';
 
 const initialState = {
   comments: []
@@ -15,6 +15,16 @@ const reducer = (state = initialState, action) => {
       const comments = state
         .comments
         .filter(comment => comment.body !== action.payload);
+
+      return {
+        ...state,
+        comments
+      };
+    }
+    case DELETE_COMMENTS: {
+      const comments = state
+        .comments
+        .filter(comment => comment.index !== action.payload);
 
       return {
         ...state,
