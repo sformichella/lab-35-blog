@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import CommentForm from '../CommentForm/CommentForm';
 import Comment from '../Comment/Comment';
 
 import { useDispatch } from 'react-redux';
@@ -22,6 +23,8 @@ export default function Post({ index, title, body, comments }) {
 
         <dt>Body</dt>
         <dd>{body}</dd>
+
+        <CommentForm index={index}/>
 
         <ul>
           {
