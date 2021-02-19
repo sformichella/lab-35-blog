@@ -6,6 +6,7 @@ import Comment from '../Comment/Comment';
 
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/postActions';
+import { deleteComments } from '../../actions/commentActions';
 
 
 export default function Post({ index, title, body, comments }) {
