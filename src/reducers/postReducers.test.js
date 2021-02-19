@@ -31,12 +31,15 @@ describe('post reducer', () => {
           title: 'Really Cool Post',
           body: 'Really cool body'
         }
-      }
+      },
+      comments: [
+        { index: '1', body: 'really cool comment'}
+      ]
     };
 
     const action = deletePost('0');
     const updatedState = reducer(state, action);
 
-    expect(updatedState).toEqual({ posts: {} });
+    expect(updatedState).toEqual({ posts: {}, comments: [] });
   });
 });
