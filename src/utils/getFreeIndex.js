@@ -1,3 +1,11 @@
+// Takes an object of this form:
+// {
+//   0: {},
+//   1: {},
+//   3: {},
+//   2: {}
+// }
+
 const getFreeIndex = objectList => {
   const indices = Object.keys(objectList);
 
