@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Comment from '../Comment/Comment';
+
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/postActions';
 
@@ -24,7 +26,11 @@ export default function Post({ index, title, body, comments }) {
         <ul>
           {
             comments.map((comment, i) => {
-              return <li key={i}>{comment.body}</li>;
+              return (
+                <li key={i}>
+                  <Comment {...comment}/>
+                </li>
+              );
             })
           }
         </ul>
