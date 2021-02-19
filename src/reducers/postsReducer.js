@@ -21,6 +21,7 @@ const reducer = (state = initialState, action) => {
     case DELETE_POST: {
       const index = action.payload;
       const posts = { ...state.posts };
+      
       delete posts[index];
 
       return {

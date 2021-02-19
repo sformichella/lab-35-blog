@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/postActions';
 
 
-export default function Post({ index, title, body }) {
+export default function Post({ index, title, body, comments }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
@@ -20,6 +20,14 @@ export default function Post({ index, title, body }) {
 
         <dt>Body</dt>
         <dd>{body}</dd>
+
+        <ul>
+          {
+            comments.map((comment, i) => {
+              return <li key={i}>{comment.body}</li>;
+            })
+          }
+        </ul>
       </dl>
       <button onClick={handleDelete}>Delete</button>
     </>
@@ -29,5 +37,9 @@ export default function Post({ index, title, body }) {
 Post.propTypes = {
   index: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired
+  body: PropTypes.string.isRequired,
+  comments: PropTypes.arrayOf({
+    index: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired
+  })
 };
