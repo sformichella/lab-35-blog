@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
   switch(action.type) {
     case CREATE_POST: {
       const newIndex = getFreeIndex(state.posts);
-      const posts = state.posts;
+      const posts = { ...state.posts };
       posts[newIndex] = action.payload;
 
       return {
@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
       
     case DELETE_POST: {
       const index = action.payload;
-      const posts = state.posts;
+      const posts = { ...state.posts };
       delete posts[index];
 
       return {
