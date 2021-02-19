@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CommentForm from '../CommentForm/CommentForm';
-import Comment from '../Comment/Comment';
+import CommentList from '../CommentList/CommentList';
 
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/postActions';
@@ -27,18 +27,8 @@ export default function Post({ index, title, body, comments }) {
         <dd>{body}</dd>
 
         <CommentForm index={index}/>
-
-        <ul>
-          {
-            comments.map((comment, i) => {
-              return (
-                <li key={i}>
-                  <Comment {...comment}/>
-                </li>
-              );
-            })
-          }
-        </ul>
+        <CommentList comments={comments}/>
+        
       </dl>
       <button onClick={handleDelete}>Delete</button>
     </>
