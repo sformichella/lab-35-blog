@@ -1,20 +1,28 @@
 import { CREATE_POST, DELETE_POST } from '../actions/postActions';
+import getFreeIndex from '../utils/getFreeIndex';
 
 export const initialState = {
-  posts: []
+  posts: {}
 };
 
-export const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case CREATE_POST:
+    case CREATE_POST: {
+      const newIndex = getFreeIndex(state.posts);
+      const posts = { ...state.posts };
+      posts[newIndex] = action.payload;
+
       return {
         ...state,
-        posts: [...state.posts, action.payload]
+        posts
       };
+    }
+      
     case DELETE_POST: {
-      const posts = state
-        .posts
-        .filter(post => post.body !== action.payload);
+      const index = action.payload;
+      const posts = { ...state.posts };
+
+      delete posts[index];
 
       return {
         ...state,
@@ -25,3 +33,5 @@ export const reducer = (state, action) => {
       return state;
   }
 };
+
+export default reducer;
