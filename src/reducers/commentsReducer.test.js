@@ -1,4 +1,4 @@
-import { createComment, deleteComment } from '../actions/commentActions';
+import { createComment, deleteComment, deleteComments } from '../actions/commentActions';
 import reducer from './commentsReducer';
 
 describe('comment reducer', () => {
@@ -36,6 +36,28 @@ describe('comment reducer', () => {
 
     expect(updatedState).toEqual({
       comments: []
+    });
+  });
+
+  it('deletes all comments with index 1', () => {
+    const state = {
+      comments: [
+        { index: '0', body: 'e' },
+        { index: '1', body: 'e' },
+        { index: '1', body: 'e' },
+        { index: '2', body: 'e' }
+      ]
+    };
+
+    const action = deleteComments('1');
+
+    const updatedState = reducer(state, action);
+
+    expect(updatedState).toEqual({
+      comments: [
+        { index: '0', body: 'e' },
+        { index: '2', body: 'e' }
+      ]
     });
   });
 });
