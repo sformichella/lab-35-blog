@@ -24,13 +24,9 @@ const reducer = (state = initialState, action) => {
 
       delete posts[index];
 
-      const comments = state.comments
-        .filter(comment => comment.index !== index);
-
       return {
         ...state,
-        posts,
-        comments
+        posts
       };
     }
     default:
