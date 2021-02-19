@@ -33,7 +33,7 @@ describe('post reducer', () => {
         }
       },
       comments: [
-        { index: '1', body: 'really cool comment'}
+        { index: '0', body: 'really cool comment'}
       ]
     };
 

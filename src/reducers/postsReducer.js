@@ -21,12 +21,16 @@ const reducer = (state = initialState, action) => {
     case DELETE_POST: {
       const index = action.payload;
       const posts = { ...state.posts };
-      
+
       delete posts[index];
+
+      const comments = state.comments
+        .filter(comment => comment.index !== index);
 
       return {
         ...state,
-        posts
+        posts,
+        comments
       };
     }
     default:
